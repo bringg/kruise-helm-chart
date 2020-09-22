@@ -8,9 +8,9 @@ If your Kubernetes version is lower than 1.15 and you'd like to install Kruise v
 
 ```bash
 # Kubernetes 1.14 and older versions
-helm install kruise https://github.com/openkruise/kruise/releases/download/v0.6.0/kruise-chart.tgz --disable-openapi-validation
+helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz --disable-openapi-validation
 # Kubernetes 1.15 and newer versions
-helm install kruise https://github.com/openkruise/kruise/releases/download/v0.6.0/kruise-chart.tgz
+helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz
 ```
 
 you will see follow:
@@ -58,5 +58,5 @@ The following table lists the configurable parameters of the kruise chart and th
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-# helm install kruise https://github.com/openkruise/kruise/releases/download/v0.6.0/kruise-chart.tgz --set manager.log.level=5,manager.custom_resource_enable="CloneSet\,SidecarSet"
+# helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz --set manager.log.level=5,manager.custom_resource_enable="CloneSet\,SidecarSet"
 ```
