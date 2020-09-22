@@ -5,6 +5,7 @@ metadata:
   name: kruise-mutating-webhook-configuration
   annotations:
     template: ""
+    "helm.sh/hook": post-install
 webhooks:
   - clientConfig:
       caBundle: Cg==
@@ -143,6 +144,7 @@ metadata:
   name: kruise-validating-webhook-configuration
   annotations:
     template: ""
+    "helm.sh/hook": post-install
 webhooks:
   - clientConfig:
       caBundle: Cg==
