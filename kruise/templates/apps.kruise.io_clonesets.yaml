@@ -70,6 +70,36 @@ spec:
         spec:
           description: CloneSetSpec defines the desired state of CloneSet
           properties:
+            lifecycle:
+              description: Lifecycle defines the lifecycle hooks for Pods pre-delete,
+                in-place update.
+              properties:
+                inPlaceUpdate:
+                  description: InPlaceUpdate is the hook before Pod to update and
+                    after Pod has been updated.
+                  properties:
+                    finalizersHandler:
+                      items:
+                        type: string
+                      type: array
+                    labelsHandler:
+                      additionalProperties:
+                        type: string
+                      type: object
+                  type: object
+                preDelete:
+                  description: PreDelete is the hook before Pod to be deleted.
+                  properties:
+                    finalizersHandler:
+                      items:
+                        type: string
+                      type: array
+                    labelsHandler:
+                      additionalProperties:
+                        type: string
+                      type: object
+                  type: object
+              type: object
             minReadySeconds:
               description: Minimum number of seconds for which a newly created pod
                 should be ready without any of its container crashing, for it to be
@@ -182,7 +212,9 @@ spec:
                   description: 'The maximum number of pods that can be unavailable
                     during the update. Value can be an absolute number (ex: 5) or
                     a percentage of desired pods (ex: 10%). Absolute number is calculated
-                    from percentage by rounding up. Defaults to 20%.'
+                    from percentage by rounding up by default. When maxSurge > 0,
+                    absolute number is calculated from percentage by rounding down.
+                    Defaults to 20%.'
                   x-kubernetes-int-or-string: true
                 partition:
                   description: Partition is the desired number of pods in old revisions.
@@ -318,7 +350,6 @@ spec:
                 type: object
               type: array
           required:
-          - replicas
           - selector
           - template
           type: object
