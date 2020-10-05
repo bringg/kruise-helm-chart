@@ -8,7 +8,7 @@ If your Kubernetes version is lower than 1.15 and you'd like to install Kruise v
 
 ```bash
 # Kubernetes 1.14 and older versions
-helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz --disable-openapi-validation
+helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.1.tgz --disable-openapi-validation
 # Kubernetes 1.15 and newer versions
 helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.1.tgz
 ```
