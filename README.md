@@ -8,9 +8,9 @@ If your Kubernetes version is lower than 1.15 and you'd like to install Kruise v
 
 ```bash
 # Kubernetes 1.14 and older versions
-helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz --disable-openapi-validation
+helm install kruise https://github.com/openkruise/kruise/releases/download/v0.6.1/kruise-chart.tgz --disable-openapi-validation
 # Kubernetes 1.15 and newer versions
-helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz
+helm install kruise https://github.com/openkruise/kruise/releases/download/v0.6.1/kruise-chart.tgz
 ```
 
 you will see follow:
@@ -40,8 +40,8 @@ The following table lists the configurable parameters of the kruise chart and th
 | `log.level`                               | Log level that kruise-manager printed                        | `4`                           |
 | `revisionHistoryLimit`                    | Limit of revision history                                    | `3`                           |
 | `manager.replicas`                        | Replicas of kruise-controller-manager deployment             | `2`                           |
-| `manager.image.repository`                | Repository for kruise-manager image                          | openkruise/kruise-manager     |
-| `manager.image.tag`                       | Tag for kruise-manager image                                 | v0.6.0                        |
+| `manager.image.repository`                | Repository for kruise-manager image                          | `openkruise/kruise-manager`   |
+| `manager.image.tag`                       | Tag for kruise-manager image                                 | `v0.6.1`                      |
 | `manager.resources.limits.cpu`            | CPU resource limit of kruise-manager container               | `100m`                        |
 | `manager.resources.limits.memory`         | Memory resource limit of kruise-manager container            | `256Mi`                       |
 | `manager.resources.requests.cpu`          | CPU resource request of kruise-manager container             | `100m`                        |
@@ -58,5 +58,5 @@ The following table lists the configurable parameters of the kruise chart and th
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-# helm install kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master/kruise-0.6.0.tgz --set manager.log.level=5,manager.custom_resource_enable="CloneSet\,SidecarSet"
+# helm install kruise https://github.com/openkruise/kruise/releases/download/v0.6.1/kruise-chart.tgz --set manager.log.level=5,manager.custom_resource_enable="CloneSet\,SidecarSet"
 ```
