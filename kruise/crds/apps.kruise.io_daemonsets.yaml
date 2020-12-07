@@ -129,6 +129,7 @@ spec:
                 that matches the template''s node selector (or on every node if no
                 node selector is specified). More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template'
               type: object
+              x-kubernetes-preserve-unknown-fields: true
             updateStrategy:
               description: An update strategy to replace existing DaemonSet pods with
                 new pods.

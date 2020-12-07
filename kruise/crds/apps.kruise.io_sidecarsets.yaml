@@ -62,6 +62,7 @@ spec:
               items:
                 description: SidecarContainer defines the container of Sidecar
                 type: object
+                x-kubernetes-preserve-unknown-fields: true
               type: array
             initContainers:
               description: Containers is the list of init containers to be injected
@@ -71,6 +72,7 @@ spec:
               items:
                 description: SidecarContainer defines the container of Sidecar
                 type: object
+                x-kubernetes-preserve-unknown-fields: true
               type: array
             paused:
               description: Paused indicates that the sidecarset is paused and will
@@ -139,6 +141,7 @@ spec:
                 description: Volume represents a named volume in a pod that may be
                   accessed by any container in the pod.
                 type: object
+                x-kubernetes-preserve-unknown-fields: true
               type: array
           type: object
         status:

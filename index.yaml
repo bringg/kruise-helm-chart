@@ -2,8 +2,28 @@ apiVersion: v1
 entries:
   kruise:
   - apiVersion: v1
+    created: "2020-12-20T11:25:06.150837+02:00"
+    description: Helm chart for all kruise-manager components
+    digest: c12fa5e2a68f1b90e566502e7b64de8e6fee479e20fd24b5b0c41faecb34068c
+    home: https://openkruise.io
+    icon: http://openkruise.io/img/kruise_white.png
+    keywords:
+    - kubernetes
+    - kruise
+    - workload
+    - statefulset
+    - sidecar
+    - job
+    - deployment
+    name: kruise
+    sources:
+    - https://github.com/openkruise/kruise
+    urls:
+    - kruise-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v1
     appVersion: 0.6.1
-    created: "2020-10-04T12:25:53.383146+03:00"
+    created: "2020-12-20T11:25:06.144159+02:00"
     description: Helm chart for all kruise-manager components
     digest: d7d70a9227804330cff9e33886c1dfee68b722586c040f61b861ddd362553af8
     home: https://openkruise.io
@@ -24,7 +44,7 @@ entries:
     version: 0.6.1
   - apiVersion: v1
     appVersion: 0.6.0
-    created: "2020-10-04T12:25:53.382092+03:00"
+    created: "2020-12-20T11:25:06.141553+02:00"
     description: Helm chart for all kruise-manager components
     digest: 855a109264da2fe989009f3e5669157df1b1a9bbb7f9e809344c9a3a6e0f95df
     home: https://openkruise.io
@@ -43,4 +63,4 @@ entries:
     urls:
     - kruise-0.6.0.tgz
     version: 0.6.0
-generated: "2020-10-04T12:25:53.380234+03:00"
+generated: "2020-12-20T11:25:06.139489+02:00"

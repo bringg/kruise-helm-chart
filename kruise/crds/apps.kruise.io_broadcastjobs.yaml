@@ -121,6 +121,7 @@ spec:
               description: Template describes the pod that will be created when executing
                 a job.
               type: object
+              x-kubernetes-preserve-unknown-fields: true
           required:
           - template
           type: object

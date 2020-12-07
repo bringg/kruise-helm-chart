@@ -128,6 +128,7 @@ spec:
                   properties:
                     metadata:
                       type: object
+                      x-kubernetes-preserve-unknown-fields: true
                     spec:
                       description: StatefulSetSpec defines the desired state of StatefulSet
                       properties:
@@ -223,6 +224,7 @@ spec:
                             Template, but have a unique identity from the rest of
                             the StatefulSet.
                           type: object
+                          x-kubernetes-preserve-unknown-fields: true
                         updateStrategy:
                           description: updateStrategy indicates the StatefulSetUpdateStrategy
                             that will be employed to update Pods in the StatefulSet
@@ -429,6 +431,7 @@ spec:
                             description: PersistentVolumeClaim is a user's request
                               for and claim to a persistent volume
                             type: object
+                            x-kubernetes-preserve-unknown-fields: true
                           type: array
                       required:
                       - selector
@@ -442,6 +445,7 @@ spec:
                   properties:
                     metadata:
                       type: object
+                      x-kubernetes-preserve-unknown-fields: true
                     spec:
                       description: CloneSetSpec defines the desired state of CloneSet
                       properties:
@@ -561,6 +565,7 @@ spec:
                         template:
                           description: Template describes the pods that will be created.
                           type: object
+                          x-kubernetes-preserve-unknown-fields: true
                         updateStrategy:
                           description: UpdateStrategy indicates the UpdateStrategy
                             that will be employed to update Pods in the CloneSet when
@@ -600,12 +605,17 @@ spec:
                                 Defaults to 20%.'
                               x-kubernetes-int-or-string: true
                             partition:
-                              description: Partition is the desired number of pods
-                                in old revisions. It means when partition is set during
-                                pods updating, (replicas - partition) number of pods
-                                will be updated. Default value is 0.
-                              format: int32
-                              type: integer
+                              anyOf:
+                              - type: integer
+                              - type: string
+                              description: 'Partition is the desired number of pods
+                                in old revisions. Value can be an absolute number
+                                (ex: 5) or a percentage of desired pods (ex: 10%).
+                                Absolute number is calculated from percentage by rounding
+                                up by default. It means when partition is set during
+                                pods updating, (replicas - partition value) number
+                                of pods will be updated. Default value is 0.'
+                              x-kubernetes-int-or-string: true
                             paused:
                               description: Paused indicates that the CloneSet is paused.
                                 Default value is false
@@ -744,6 +754,7 @@ spec:
                             description: PersistentVolumeClaim is a user's request
                               for and claim to a persistent volume
                             type: object
+                            x-kubernetes-preserve-unknown-fields: true
                           type: array
                       required:
                       - selector
@@ -757,9 +768,11 @@ spec:
                   properties:
                     metadata:
                       type: object
+                      x-kubernetes-preserve-unknown-fields: true
                     spec:
                       description: A StatefulSetSpec is the specification of a StatefulSet.
                       type: object
+                      x-kubernetes-preserve-unknown-fields: true
                   required:
                   - spec
                   type: object
@@ -787,6 +800,7 @@ spec:
                           distributed across multiple groups of nodes. A subset's
                           nodeSelectorTerm is not allowed to be updated.
                         type: object
+                        x-kubernetes-preserve-unknown-fields: true
                       replicas:
                         anyOf:
                         - type: integer
@@ -808,6 +822,7 @@ spec:
                             any taint that matches the triple <key,value,effect> using
                             the matching operator <operator>.
                           type: object
+                          x-kubernetes-preserve-unknown-fields: true
                         type: array
                     required:
                     - name

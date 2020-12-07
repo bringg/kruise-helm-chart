@@ -179,6 +179,7 @@ spec:
             template:
               description: Template describes the pods that will be created.
               type: object
+              x-kubernetes-preserve-unknown-fields: true
             updateStrategy:
               description: UpdateStrategy indicates the UpdateStrategy that will be
                 employed to update Pods in the CloneSet when a revision is made to
@@ -217,12 +218,16 @@ spec:
                     Defaults to 20%.'
                   x-kubernetes-int-or-string: true
                 partition:
-                  description: Partition is the desired number of pods in old revisions.
-                    It means when partition is set during pods updating, (replicas
-                    - partition) number of pods will be updated. Default value is
-                    0.
-                  format: int32
-                  type: integer
+                  anyOf:
+                  - type: integer
+                  - type: string
+                  description: 'Partition is the desired number of pods in old revisions.
+                    Value can be an absolute number (ex: 5) or a percentage of desired
+                    pods (ex: 10%). Absolute number is calculated from percentage
+                    by rounding up by default. It means when partition is set during
+                    pods updating, (replicas - partition value) number of pods will
+                    be updated. Default value is 0.'
+                  x-kubernetes-int-or-string: true
                 paused:
                   description: Paused indicates that the CloneSet is paused. Default
                     value is false
@@ -348,6 +353,7 @@ spec:
                 description: PersistentVolumeClaim is a user's request for and claim
                   to a persistent volume
                 type: object
+                x-kubernetes-preserve-unknown-fields: true
               type: array
           required:
           - selector

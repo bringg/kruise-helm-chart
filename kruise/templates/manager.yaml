@@ -47,6 +47,9 @@ spec:
             - --health-probe-addr=:{{ .Values.manager.healthProbe.port }}
             - --logtostderr=true
             - --v={{ .Values.manager.log.level }}
+            {{- if .Values.manager.allowPrivileged }}
+            - --allow-privileged=true
+            {{- end }}
           command:
             - /manager
           image: {{ .Values.manager.image.repository }}:{{.Values.manager.image.tag}}
