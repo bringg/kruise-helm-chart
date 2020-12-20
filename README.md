@@ -18,5 +18,6 @@ helm install kruise kruise/kruise
 ```
 
 ### References
+
 - [OpenKruise](https://openkruise.io)
 - [Helm Chart documentation (0.7.0)](https://github.com/openkruise/kruise/tree/master/charts/kruise/v0.7.0)
