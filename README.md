@@ -5,16 +5,17 @@ Note that for Kubernetes 1.13 and 1.14, users must enable `CustomResourceWebhook
 
 ## Installing
 
-### Add the kruise Helm charts repo
+**Add the kruise Helm charts repo:**
 
 ```shell
 helm repo add kruise https://raw.githubusercontent.com/bringg/kruise-helm-chart/master
 ```
 
-### Install it
+**Install it:**
 
-- with Helm 3: `helm install kruise/kruise`
-- with Helm 2 (deprecated): `helm install --name kruise kruise`
+```shell
+helm install kruise kruise/kruise
+```
 
 ### References
 - [OpenKruise](https://openkruise.io)
